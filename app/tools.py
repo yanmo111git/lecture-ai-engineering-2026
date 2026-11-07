@@ -8,6 +8,7 @@ import json
 import random
 from functools import cache
 from pathlib import Path
+from datetime import datetime
 
 DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 MAX_RESULTS = 3
@@ -99,3 +100,22 @@ def make_quiz(lecture: int) -> str:
         },
         ensure_ascii=False,
     )
+
+def save_learning_log():
+    """学習ログを保存する。
+
+    学習の進捗や、どの回の内容を学んだかを記録する。
+    """
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+    log_path = DATA_DIR / "learning_log.json"
+
+    log_data = {
+        "timestamp": datetime.now().isoformat(),
+        "progress": "学習の進捗情報"
+    }
+
+    with open(log_path, "w", encoding="utf-8") as f:
+        json.dump(log_data, f, ensure_ascii=False, indent=4)
+
+    return "学習ログが保存されました。"
