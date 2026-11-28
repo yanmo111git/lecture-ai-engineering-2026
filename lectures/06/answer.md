@@ -15,6 +15,6 @@
 <!-- 基礎・実装・発展のどれか1つに取り組めば完了です。 -->
 
 - 取り組んだレベル：基礎
-- やったこと：
-- 結果：
-- 気づき・疑問：
+- やったこと：mcp_server.pyに [glossary_get_lecture_summary]を追加したのみ。mcp_agent.pyは修正していない。その後第2回の講義内容を確認
+- 結果：[tool call]   glossary_get_lecture_summary({'lecture': 2})　[tool return] glossary_get_lecture_summary -> # 第2回 ファインチューニングとLoRA
+- 気づき・疑問：agentを修正することなく、MCPサーバに追加するだけで、機能が使えることが分かった。　疑問としては、追加できる最大数などあるのか。
